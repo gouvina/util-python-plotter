@@ -12,4 +12,5 @@ COLORS = ['#f58231', '#4363d8', '#e6194B', '#3cb44b', '#469990', '#ffe119', '#00
 class PlotOps(Enum):
     CURVE = 0
     DOTS = 1
-    BOX = 2
+    BARS = 2
+    BOX = 3

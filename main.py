@@ -19,6 +19,8 @@ if __name__ == "__main__":
         elif plot_type == 1:
             plot_type = const.PlotOps.DOTS
         elif plot_type == 2:
+            plot_type = const.PlotOps.BARS
+        elif plot_type == 3:
             plot_type = const.PlotOps.BOX
     except:
         plot_type = const.PlotOps.CURVE
@@ -28,10 +30,10 @@ if __name__ == "__main__":
 
     # 3. Generate metadata
     meta = {
-        'title': 'Corrida Ej2 - Curvas',
+        'title': 'Corrida Ej2 - Boxplot',
         'xlabel': 'Tamaño (N)',
         'ylabel': 'Tiempo (ms)',
-        'colors': [const.COLORS[0], const.COLORS[0], const.COLORS[1], const.COLORS[1]],
+        'colors': [const.COLORS[1], const.COLORS[1], const.COLORS[0], const.COLORS[0]],
         'labels': ['Vector (min)', 'Vector (max)', 'Matriz (min)', 'Matriz (max)']
     }
 
