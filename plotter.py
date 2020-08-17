@@ -11,13 +11,20 @@ def plotCurves(data, meta):
 
     plt.figure(figsize=(12,6)) 
     plt.xlabel(meta['xlabel'])
-    plt.ylabel(meta['ylabel'])    
+    plt.ylabel(meta['ylabel'])
     plt.title(meta['title'])
 
-    x_values, y_values = data
-    for index, column in enumerate(y_values):
-        plt.plot(x_values, column, alpha=0.8, label=meta['labels'][index], color=meta['colors'][index])
-    
+    if isinstance(data, tuple):
+        x_values, y_values = data
+        plt.plot(x_values, y_values, alpha=0.8, marker='o', markersize=5, label=meta['labels'][0], color=meta['colors'][0])
+    else: # Assume it's a list of tuples
+        for index, curve in enumerate(data):
+            x_values, y_values = curve
+            plt.plot(x_values, y_values, alpha=0.8, marker='o', markersize=5, label=meta['labels'][index], color=meta['colors'][index])
+
+    for index, hline in enumerate(meta['hlines']):
+        plt.hlines(y=hline, xmin=meta['xmin'], xmax=meta['xmax'], alpha=0.8, color=meta['colors'][index], linestyle='dashed')
+
     plt.legend(loc="upper left")
     plt.show()
 
@@ -25,7 +32,7 @@ def plotScatter(data, meta):
 
     plt.figure(figsize=(12,6)) 
     plt.xlabel(meta['xlabel'])
-    plt.ylabel(meta['ylabel'])    
+    plt.ylabel(meta['ylabel'])
     plt.title(meta['title'])
 
     x_values, y_values = data
@@ -39,7 +46,7 @@ def plotBars(data, meta):
 
     plt.figure(figsize=(12,6)) 
     plt.xlabel(meta['xlabel'])
-    plt.ylabel(meta['ylabel'])    
+    plt.ylabel(meta['ylabel'])
     plt.title(meta['title'])
 
     x_values, y_values = data
@@ -57,7 +64,7 @@ def plotBars(data, meta):
 def plotBox(data, meta):
     plt.figure(figsize=(12,6)) 
     plt.xlabel(meta['xlabel'])
-    plt.ylabel(meta['ylabel'])    
+    plt.ylabel(meta['ylabel'])
     plt.title(meta['title'])
 
     x_values, y_values = data

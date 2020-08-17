@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 ### DEPENDENCIES
 ### ------------------
 import sys
@@ -11,7 +13,7 @@ import plotter
 if __name__ == "__main__":
     
     # 1. Read parameters
-    filename = sys.argv[1]
+    path = sys.argv[1]
     try:
         plot_type = int(sys.argv[2])
         if plot_type == 0:
@@ -26,15 +28,18 @@ if __name__ == "__main__":
         plot_type = const.PlotOps.CURVE
     
     # 2. Read data
-    data = reader.read_data(filename)
+    data = reader.read_data(path)
 
     # 3. Generate metadata
     meta = {
-        'title': 'Corrida Ej2 - Boxplot',
-        'xlabel': 'Tamaño (N)',
-        'ylabel': 'Tiempo (ms)',
-        'colors': [const.COLORS[1], const.COLORS[1], const.COLORS[0], const.COLORS[0]],
-        'labels': ['Vector (min)', 'Vector (max)', 'Matriz (min)', 'Matriz (max)']
+        'title': '',
+        'xlabel': 'k',
+        'ylabel': 'PSNR (db)',
+        'colors': [const.COLORS[1], const.COLORS[0], const.COLORS[2]],
+        'labels': ['δ = 0.05', 'δ = 0.10', 'δ = 0.35'],
+        'hlines': [12, 22, 32],
+        'xmin': 0,
+        'xmax': 8
     }
 
     # 4. Plot data
