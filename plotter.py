@@ -2,6 +2,7 @@
 ### ------------------
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.transforms as transforms
 from const import PlotOps
 
 ### AUX METHODS
@@ -22,8 +23,11 @@ def plotCurves(data, meta):
             x_values, y_values = curve
             plt.plot(x_values, y_values, alpha=0.8, marker='o', markersize=5, label=meta['labels'][index], color=meta['colors'][index])
 
+    ax = plt.axes()
+    trans = transforms.blended_transform_factory(ax.get_yticklabels()[0].get_transform(), ax.transData)
     for index, hline in enumerate(meta['hlines']):
         plt.hlines(y=hline, xmin=meta['xmin'], xmax=meta['xmax'], alpha=0.8, color=meta['colors'][index], linestyle='dashed')
+        plt.text(0, hline, meta['labels'][index], color=meta['colors'][index], transform=trans, ha="right", va="center")
 
     plt.legend(loc="upper left")
     plt.show()

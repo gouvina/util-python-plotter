@@ -34,10 +34,10 @@ if __name__ == "__main__":
     meta = {
         'title': '',
         'xlabel': 'k',
-        'ylabel': 'PSNR (db)',
+        'ylabel': 'PSNR (dB)',
         'colors': [const.COLORS[1], const.COLORS[0], const.COLORS[2]],
         'labels': ['δ = 0.05', 'δ = 0.10', 'δ = 0.35'],
-        'hlines': [12, 22, 32],
+        'hlines': [18.58, 15.59, 10.15],
         'xmin': 0,
         'xmax': 8
     }
