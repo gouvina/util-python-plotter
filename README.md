@@ -3,7 +3,7 @@ Base Project for generating personalized plots using Python and Matplotlib
 :
 ## Setup
 1. (Optional) Generate virtual environment (directory `env`): <br>
-`venv env` <br><br>
+`python -m venv env` <br><br>
 2. (Optional) Activate virtual environment: <br>
 `env/Scripts/activate.bat` (Windows)<br>
 `./env/Scripts/activate` (Unix)<br><br>
